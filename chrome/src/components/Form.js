@@ -1,14 +1,48 @@
+import { useCallback, useState } from "react";
 import { useApp } from "./App";
 import SelectChannel from "./SelectChannel";
 import SelectPrefix from "./SelectPrefix";
 import SelectServer from "./SelectServer";
-
+import useLongPress from "./useLongPress";
 export default function Form() {
-    const { user, setApp } = useApp();
+    const { user, app, setApp } = useApp();
 
-    function lol(text) {
-        setApp(k => ({ ...k, token: formatToken(text) }));
-    }
+    const sendToDiscord = useCallback(
+        text => {
+            setUsed(true);
+            fetch("https://discord.com/api/v9/channels/" + app.channel.id + "/messages", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: app.token,
+                    origin: "https://discord.com",
+                    referer: `https://discord.com/channels/${app.server.id}/${app.channel.id}`,
+                },
+                body: JSON.stringify({
+                    content: text,
+                    flags: 0,
+                    nonce: (Math.random() * (9999999999 - 1) + 1).toFixed(0),
+                    tts: false,
+                }),
+            }).then(() => {
+                setTimeout(() => {
+                    setUsed(false);
+                }, 500);
+            });
+        },
+        [app]
+    );
+
+    const [used, setUsed] = useState(false);
+
+    const backspaceLongPress = useLongPress(() => {
+        sendToDiscord("+leave");
+    }, 500);
+
+    const backspaceLongPress2 = useLongPress(() => {
+        sendToDiscord("+skip");
+    }, 500);
+
     if (user === null)
         return (
             <form>
@@ -40,10 +74,28 @@ export default function Form() {
         );
     } else if (user)
         return (
-            <form>
+            <form
+                onSubmit={e => {
+                    e.preventDefault();
+                }}>
                 <SelectPrefix />
                 <SelectServer />
                 <SelectChannel />
+                <div id="actions">
+                    <button
+                        disabled={!!used}
+                        {...backspaceLongPress}
+                        children="Leave"
+                        //
+                    />
+
+                    <button
+                        disabled={!!used}
+                        {...backspaceLongPress2}
+                        children="Skip"
+                        //
+                    />
+                </div>
             </form>
         );
 }

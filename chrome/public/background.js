@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addListener(function () {
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
     if (info.menuItemId == "sendlinktodiscord") {
-        chrome.storage.sync.get(["app"], function ({ app }) {
+        chrome.storage.sync.get(["app"], ({ app }) => {
             fetch("https://discord.com/api/v9/channels/" + app.channel.id + "/messages", {
                 method: "POST",
                 headers: {
@@ -25,9 +25,7 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
                 }),
             })
                 .then(res => res.json())
-                .then(response => {
-                    console.log(response);
-                });
+                .then(response => {});
         });
     }
 });

@@ -141,3 +141,31 @@ form {
         margin-bottom: 30px;
     }
 }
+
+#actions {
+    display: flex;
+    align-items: center;
+
+    button {
+        margin: 15px;
+        border: 1px solid transparent;
+        &:nth-child(1) {
+            background-color: #9e2b2b;
+            &:hover {
+                background-color: #9e2b2bbb;
+            }
+            &:active {
+                border: 1px solid red;
+            }
+        }
+        &:nth-child(2) {
+            background-color: #2b669e;
+            &:hover {
+                background-color: #2b669ebb;
+            }
+            &:active {
+                border: 1px solid rgb(0, 234, 255);
+            }
+        }
+    }
+}

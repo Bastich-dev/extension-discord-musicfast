@@ -1,10 +1,11 @@
 window.playToDiscord = playToDiscord;
-console.log("playToDiscord loaded");
+
+const iconDiscord = chrome.runtime.getURL("discord-white.png");
 
 function playToDiscord(link) {
     const formattedLink = formatLink(link);
 
-    chrome.storage.sync.get(["app"], function ({ app }) {
+    chrome.storage.sync.get(["app"], ({ app }) => {
         fetch("https://discord.com/api/v9/channels/" + app.channel.id + "/messages", {
             method: "POST",
             headers: {
@@ -22,7 +23,7 @@ function playToDiscord(link) {
         })
             .then(res => res.json())
             .then(response => {
-                console.log(response);
+                // if (response.nonce) animComplete(response);
             });
     });
 }
@@ -34,3 +35,31 @@ function formatLink(link) {
     else if (toChangeLink.includes("&list=")) toChangeLink = link.split("&list=")[0];
     return toChangeLink;
 }
+
+// function animComplete({ embeds, content }) {
+//     const bodyDocument = document.querySelector("ytd-app") || document.querySelector("ytmusic-app");
+//     if (bodyDocument && embeds.length > 0) {
+//         const thumbnail = embeds.find(e => e.thumbnail.url)?.thumbnail?.url;
+//         const author = embeds.find(e => e.author.name)?.author?.name;
+//         const title = embeds.find(e => e.title.name)?.title?.name;
+//         const newEl = document.createElement("a");
+
+//         newEl.classList.add("animComplete");
+//         newEl.href = content.replace("+play ", "");
+//         newEl.target = "_blank";
+//         newEl.innerHTML = `
+//             <img src="${thumbnail || "https://i.imgur.com/DYpLAQf.png"}" width="24" height="24" />
+//             <div>
+//                 <b>${author || "Musique jouée sur Discord"}</b>
+//                 <span>${title || ""}</span>
+//             </div>
+// `;
+//         bodyDocument.appendChild(newEl);
+//         newEl.classList.add("animate__backInRight");
+
+//         setTimeout(() => {
+//             newEl.classList.remove("animate__backInRight");
+//             newEl.classList.add("animate__backOutRight");
+//         }, 3000);
+//     }
+// }

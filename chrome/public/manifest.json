@@ -1,9 +1,9 @@
 {
     "name": "Discord Music Fast",
-    "version": "1.2.2",
+    "version": "1.0.0",
     "description": "Quickly send links to Pages, Images, Text-Selections, etc. to a Discord channel",
     "manifest_version": 2,
-    "permissions": ["contextMenus", "storage", "identity", "https://discordapp.com/api/"],
+    "permissions": ["activeTab", "contextMenus", "storage", "identity", "https://discordapp.com/api/"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false

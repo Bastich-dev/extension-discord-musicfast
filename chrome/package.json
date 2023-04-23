@@ -1,0 +1,29 @@
+{
+    "name": "reactextension",
+    "version": "0.1.0",
+    "private": false,
+    "dependencies": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-scripts": "^5.0.1",
+        "sass": "^1.62.0"
+    },
+    "scripts": {
+        "start": "react-scripts start --no-inline-scripts",
+        "build": "react-scripts build --no-inline-scripts",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

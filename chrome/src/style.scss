@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,500,700");
+
+/* LAYOUT */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+}
+
+#root {
+    background: #2c2f33;
+    margin: 0px;
+    padding: 20px;
+    width: 400px;
+    min-height: 350px;
+    color: white;
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+#root * {
+    font-family: "montserrat", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer {
+    font-style: italic;
+    color: grey;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+a {
+    color: grey;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:first-child {
+        color: grey;
+    }
+    &:last-child {
+        color: white;
+    }
+}
+
+#loading {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ELEMENTS */
+
+button {
+    border: 0px;
+    background: #7289da;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background: #7289dabb;
+    }
+}
+
+img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------  SECTIONS */
+
+#profile {
+    display: flex;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+
+    label {
+        margin-left: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+        border-radius: 10px;
+        width: 100%;
+        height: 44px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 16px;
+        color: white;
+        background: #2c2f33;
+        border: 1px solid grey;
+        outline: none !important;
+        cursor: pointer;
+    }
+
+    textarea {
+        font-size: 12px;
+        height: 64px;
+    }
+
+    input {
+        width: calc(100% - 20px);
+        height: 40px;
+    }
+
+    button {
+        margin-top: auto;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+}

@@ -1,2 +1,2 @@
-Tuto Chrome : https://github.com/BastosC/MusicFast-Discord-Extension
-Github : https://scribehow.com/shared/Discord_Fast_Music_Workflow__m6rwC5w0RWeKQ0frOQUVwA
+Tuto Extension : https://bastoss.notion.site/Discord-Music-Fast-09eb7ac72bc646239ccf6d4f696d877b
+Github : https://github.com/BastosC/MusicFast-Discord-Extension

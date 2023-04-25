@@ -67,7 +67,7 @@ export default function Form() {
                     }}
                 />
 
-                <a href="https://scribehow.com/shared/Discord_Fast_Music_Workflow__m6rwC5w0RWeKQ0frOQUVwA" target="_blank" rel="noopenner noreferrer">
+                <a href="https://bastoss.notion.site/Discord-Music-Fast-09eb7ac72bc646239ccf6d4f696d877b" target="_blank" rel="noopenner noreferrer">
                     Comment obtenir mon token ?
                 </a>
             </form>

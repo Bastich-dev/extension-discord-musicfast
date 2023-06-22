@@ -10,6 +10,8 @@
 /build
 .next
 
+pnpm-lock.yaml
+
 # misc
 .DS_Store
 .env.local

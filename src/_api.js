@@ -1,5 +1,7 @@
 import { getStorage } from "./_storage";
 
+const url_api = "https://music-fast-discord-extension.vercel.app";
+
 export const getGuilds = async () => {
     const { token } = await getStorage(["token"]);
     const response = await fetch("https://discord.com/api/v9/users/@me/guilds", {
@@ -66,7 +68,7 @@ export const login = async ({ login, password }) => {
 };
 
 export const trylogin = async ({ login, password }) => {
-    const response = await fetch("http://localhost:3000/api/login", {
+    const response = await fetch(url_api + "/api/login", {
         method: "POST",
         headers: {
             "content-type": "application/json",

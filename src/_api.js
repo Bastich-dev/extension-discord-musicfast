@@ -68,16 +68,17 @@ export const login = async ({ login, password }) => {
 };
 
 export const trylogin = async ({ login, password }) => {
-    const response = await fetch(url_api + "/api/login", {
-        method: "POST",
-        headers: {
-            "content-type": "application/json",
-        },
-        body: JSON.stringify({
-            login,
-            password,
-        }),
-    });
+    // const response = await fetch(url_api + "/api/login", {
+    //     method: "POST",
+    //     headers: {
+    //         "content-type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //         login,
+    //         password,
+    //     }),
+    // });
+    const response = await fetch(url_api + "/api/login?t=" + btoa(JSON.stringify({ login, password })));
 
     if (response.status === 200) return response.json();
     else throw Error("login failed");

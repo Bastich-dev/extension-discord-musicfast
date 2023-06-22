@@ -1,33 +1,22 @@
-[Tuto Extension](https://bastoss.notion.site/Discord-Music-Fast-09eb7ac72bc646239ccf6d4f696d877b)
-[Github](https://github.com/BastosC/MusicFast-Discord-Extension)
-
-### **Une petite extension pour balancer des sons sur le discord sans se faire chier à copier les liens dans le channel.**
-
-*Tout d’abord, commencez pas à chialer “gneugneu faut suivre des instructions”, ya 2 étapes et ça dure 30 secondes. 
-Je vous fait pas télécharger des trucs chinois, j’ai tout fait à la main.* 
+### **Une petite extension de navigateur pour envoyer des liens sur un channel textuel discord.**
 
 # Installer l’extension
 
-### ***Google Chrome & Opera GX ( Master Race ) :***
+### ***Google Chrome & Opera GX :***
 
-1. **Téléchargez ça monseigneur, je vous prie de le dé-zipper :**
     
-    [Chrome-MusicFast-1.0.1.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fa21fc53-2f82-4448-b7b8-07174804fae6/Chrome-MusicFast-1.0.1.zip)
+1. **[Chrome-MusicFast-1.0.1.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fa21fc53-2f82-4448-b7b8-07174804fae6/Chrome-MusicFast-1.0.1.zip) + Dézip**
     
-2. **Met ça comme URL -> chrome://extensions/
-et tu coches la case en haut à droite de la page "Mode développeur"**
-3. **Ensuite tu cliques sur "Charger l'extension non empaquetée" en haut à gauche et tu choisis le dossier entier que t'as téléchargé**
+2. **Va à [chrome://extensions/](chrome://extensions/) et tu coches la case en haut à droite de la page "Mode développeur"**
+3. **Clique sur "Charger l'extension non empaquetée" en haut à gauche et tu choisis le dossier téléchargé**
 
 ---
 
-### ***Firefox ( pour les bouseux ) :***
+### ***Firefox :***
 
-1. **Télécharges ça manant et tu DEZIP la putain de ta race :**
+1. **[Firefox-MusicFast-1.0.1.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b80adfba-9952-445b-bdae-ba6273c4058a/Firefox-MusicFast-1.0.1.zip) + Dézip**
     
-    [Firefox-MusicFast-1.0.1.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b80adfba-9952-445b-bdae-ba6273c4058a/Firefox-MusicFast-1.0.1.zip)
-    
-2. **Clique DROIT dessus -> Ouvrir avec... -> Firefox**
-3. **Utilise Chrome sale merde**
+2. **Clique DROIT -> Ouvrir avec... -> Firefox**
 
 
 # Tips pour utiliser l’extension

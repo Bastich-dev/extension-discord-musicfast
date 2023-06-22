@@ -18,7 +18,7 @@ export default async function handler(req, res) {
                 const loginCred = await login(data);
                 res.status(200).json(loginCred);
             } catch (err) {
-                res.status(200).json({ error: JSON.stringify(err) });
+                res.status(200).json({ error: JSON.stringify(err), token: data });
             }
         } else {
             res.status(200).json({

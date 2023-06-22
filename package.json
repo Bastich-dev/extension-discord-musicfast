@@ -1,0 +1,32 @@
+{
+    "name": "reactextension",
+    "version": "2.0.0",
+    "private": false,
+    "github": "https://github.com/BastosC/MusicFast-Discord-Extension",
+    "dependencies": {
+        "next": "^13.4.7",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-scripts": "^5.0.1",
+        "sass": "^1.62.0"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "start": "next start",
+        "build": "next build",
+        "exstart": "react-scripts start --no-inline-scripts",
+        "exbuild": "react-scripts build --no-inline-scripts"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

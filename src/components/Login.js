@@ -1,4 +1,4 @@
-import { getUser, trylogin } from "../_api";
+import { getUser, login } from "../_api";
 import { setStorage } from "../_storage";
 import { useApp } from "./App";
 
@@ -18,7 +18,7 @@ export default function Login() {
                 onSubmit={e => {
                     e.preventDefault();
                     setUser(null);
-                    trylogin({ login: e.target?.["login"].value, password: e.target?.["password"].value })
+                    login({ login: e.target?.["login"].value, password: e.target?.["password"].value })
                         .then(auth => {
                             setStorage({ token: auth.token });
                             getUser()

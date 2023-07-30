@@ -18,6 +18,10 @@
             "css": ["style.css"],
             "js": ["pages/youtube-music.js"],
             "matches": ["https://music.youtube.com/*"]
+        },
+        {
+            "js": ["pages/discord.js"],
+            "matches": ["https://discord.com/*"]
         }
     ],
     "web_accessible_resources": ["utils.js"],

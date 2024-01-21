@@ -1,0 +1,198 @@
+/* ------------------------------------------------------------- Changes UI */
+
+#items {
+    width: auto !important;
+}
+
+.scroller.ytmusic-popup-container {
+    max-width: initial !important;
+    max-height: initial !important;
+}
+
+/* ------------------------------------------------------------- youtube */
+
+.youtube {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 12px 0 16px;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.youtube:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.youtube img {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+}
+
+.youtube span {
+    color: rgb(15, 15, 15);
+    white-space: nowrap;
+    margin-right: 24px;
+    flex: 1;
+    flex-basis: 1e-9px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+/* ------------------------------------------------------------- youtubeMusic */
+
+.youtubeMusic {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 12px 0 16px;
+    cursor: pointer;
+}
+
+.youtubeMusic:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.youtubeMusic img {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+}
+
+.youtubeMusic span {
+    color: white;
+    white-space: nowrap;
+    margin-right: 24px;
+    flex: 1;
+    flex-basis: 1e-9px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+/* ------------------------------------------------------------- animComplete */
+
+.animComplete {
+    width: 500px;
+    height: 130px;
+    background-color: #2d3b70;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    padding: 10px;
+    display: flex;
+}
+
+.animComplete img {
+    width: 200px;
+    height: 130px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.animComplete div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.animComplete b {
+    color: white;
+    font-size: 18px;
+}
+.animComplete span {
+    color: white;
+    font-size: 16px;
+}
+
+/* ------------------------------------------------------------- ANIMATIONS */
+.animate__backInRight {
+    -webkit-animation-name: backInRight;
+    animation-name: backInRight;
+}
+@-webkit-keyframes backInRight {
+    0% {
+        -webkit-transform: translateX(2000px) scale(0.7);
+        transform: translateX(2000px) scale(0.7);
+        opacity: 0.7;
+    }
+
+    80% {
+        -webkit-transform: translateX(0) scale(0.7);
+        transform: translateX(0) scale(0.7);
+        opacity: 0.7;
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes backInRight {
+    0% {
+        -webkit-transform: translateX(2000px) scale(0.7);
+        transform: translateX(2000px) scale(0.7);
+        opacity: 0.7;
+    }
+
+    80% {
+        -webkit-transform: translateX(0) scale(0.7);
+        transform: translateX(0) scale(0.7);
+        opacity: 0.7;
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.animate__backOutRight {
+    -webkit-animation-name: backOutRight;
+    animation-name: backOutRight;
+}
+@-webkit-keyframes backOutRight {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    20% {
+        -webkit-transform: translateX(0) scale(0.7);
+        transform: translateX(0) scale(0.7);
+        opacity: 0.7;
+    }
+    to {
+        -webkit-transform: translateX(2000px) scale(0.7);
+        transform: translateX(2000px) scale(0.7);
+        opacity: 0;
+    }
+}
+@keyframes backOutRight {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    20% {
+        -webkit-transform: translateX(0) scale(0.7);
+        transform: translateX(0) scale(0.7);
+        opacity: 0.7;
+    }
+    to {
+        -webkit-transform: translateX(2000px) scale(0.7);
+        transform: translateX(2000px) scale(0.7);
+        opacity: 0;
+    }
+}

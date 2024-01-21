@@ -1,0 +1,41 @@
+{
+    "name": "Discord Music Fast",
+    "version": "2.0.0",
+    "description": "Une petite extension pour balancer des sons sur le discord sans se faire chier à copier les liens dans le channel.",
+    "manifest_version": 2,
+    "permissions": ["activeTab", "contextMenus", "storage", "identity", "https://discordapp.com/api/"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "css": ["style.css"],
+            "js": ["pages/youtube.js"],
+            "matches": ["https://www.youtube.com/*"]
+        },
+        {
+            "css": ["style.css"],
+            "js": ["pages/youtube-music.js"],
+            "matches": ["https://music.youtube.com/*"]
+        },
+        {
+            "js": ["pages/discord.js"],
+            "matches": ["https://discord.com/*"]
+        }
+    ],
+    "web_accessible_resources": ["utils.js"],
+    "icons": {
+        "16": "favicon-16x16.png",
+        "48": "favicon-32x32.png",
+        "128": "favicon-96x96.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "16": "favicon-16x16.png",
+            "48": "favicon-32x32.png",
+            "128": "favicon-96x96.png"
+        },
+        "default_popup": "index.html"
+    }
+}

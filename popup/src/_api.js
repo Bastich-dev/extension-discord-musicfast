@@ -17,7 +17,7 @@ export const getGuilds = async () => {
     else throw Error("getGuilds failed");
 };
 
-export const getChannels = async server_id => {
+export const getChannels = async (server_id) => {
     const { token } = await getStorage(["token"]);
     const response = await fetch("https://discord.com/api/v9/guilds/" + server_id + "/channels", {
         method: "GET",
@@ -52,7 +52,8 @@ export const login = async ({ login, password }) => {
         method: "POST",
         headers: {
             "content-type": "application/json",
-            origin: "http://localhost:3000",
+            // origin: "http://localhost:3000",
+            origin: "https://discord.com",
         },
         body: JSON.stringify({
             gift_code_sku_id: null,
@@ -62,28 +63,31 @@ export const login = async ({ login, password }) => {
             undelete: false,
         }),
     });
-
     if (response.status === 200) return response.json();
     else return response.status;
 };
 
 export const trylogin = async ({ login, password }) => {
-    // const response = await fetch(url_api + "/api/login", {
-    //     method: "POST",
-    //     headers: {
-    //         "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //         login,
-    //         password,
-    //     }),
-    // });
-    const response = await fetch(url_api + "/api/login?t=" + btoa(JSON.stringify({ login, password })));
+    const response = await fetch("https://discord.com/api/v10/auth/login", {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+            // origin: "http://localhost:3000",
+            origin: "https://discord.com",
+        },
+        body: JSON.stringify({
+            gift_code_sku_id: null,
+            login,
+            login_source: null,
+            password,
+            undelete: false,
+        }),
+    });
     if (response.status === 200) return response.json();
-    else throw Error("login failed");
+    else return response.status;
 };
 
-export const sendMessageToDiscord = async text => {
+export const sendMessageToDiscord = async (text) => {
     const { token, app } = await getStorage(["token", "app"]);
     const server_id = app.server.id;
     const channel_id = app.channel.id;

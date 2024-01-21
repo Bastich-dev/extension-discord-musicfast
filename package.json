@@ -1,32 +1,20 @@
 {
-    "name": "reactextension",
-    "version": "2.0.0",
-    "private": false,
+    "name": "discord-music-fast",
+    "version": "1.0.0",
+    "private": true,
     "github": "https://github.com/BastosC/MusicFast-Discord-Extension",
     "dependencies": {
-        "next": "^13.4.7",
+        "jszip-sync": "3.2.1-sync",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-scripts": "^5.0.1",
         "sass": "^1.62.0"
     },
     "scripts": {
-        "dev": "next dev",
         "start": "next start",
-        "build": "next build",
-        "exstart": "react-scripts start --no-inline-scripts",
-        "exbuild": "react-scripts build --no-inline-scripts"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "popup-dev": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts start --no-inline-scripts",
+        "chrome-build": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup && rm -r build ",
+        "firefox-build": "cp -r firefox/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && node build-firefox.js && rm -r build ",
+        "test": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup"
     }
 }

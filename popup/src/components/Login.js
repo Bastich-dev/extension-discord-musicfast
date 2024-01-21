@@ -1,9 +1,9 @@
-import { getUser, login } from "../_api";
+import { getUser, trylogin } from "../_api";
 import { setStorage } from "../_storage";
 import { useApp } from "./App";
 
 export default function Login() {
-    const { setUser, setMessage, setToken } = useApp();
+    const { setUser, setMessage } = useApp();
 
     return (
         <>
@@ -15,14 +15,14 @@ export default function Login() {
                 Lien de tuto
             </a>
             <form
-                onSubmit={e => {
+                onSubmit={(e) => {
                     e.preventDefault();
                     setUser(null);
-                    login({ login: e.target?.["login"].value, password: e.target?.["password"].value })
-                        .then(auth => {
+                    trylogin({ login: e.target?.["login"].value, password: e.target?.["password"].value })
+                        .then((auth) => {
                             setStorage({ token: auth.token });
                             getUser()
-                                .then(res => {
+                                .then((res) => {
                                     setUser(res);
                                     setMessage({
                                         text: "Connexion réussie",

@@ -1,4 +1,4 @@
-### **Extension de navigateur pour envoyer des liens Youtube & Youtube Music sur un channel textuel discord avec un simple clic droit.**
+### **Extension de navigateur pour envoyer des liens Youtube & Youtube Music sur un channel textuel discord avec un simple clic droit .**
 
 <div style="display:flex">
 <img src="./cover.jpg" height="500" alt="Cover"/>

@@ -1,9 +1,21 @@
+import { useEffect } from "react";
 import { getUser, trylogin } from "../_api";
 import { setStorage } from "../_storage";
 import { useApp } from "./App";
 
 export default function Login() {
     const { setUser, setMessage } = useApp();
+
+    useEffect(() => {
+        window.addEventListener("message", (event) => {
+            event.source.postMessage(
+                {
+                    code: new URLSearchParams(window.location.search).get("code"),
+                },
+                event.origin
+            );
+        });
+    }, []);
 
     return (
         <>
@@ -18,7 +30,11 @@ export default function Login() {
                 onSubmit={(e) => {
                     e.preventDefault();
                     setUser(null);
-                    trylogin({ login: e.target?.["login"].value, password: e.target?.["password"].value })
+                    trylogin({
+                        login: e.target?.["login"].value,
+                        password: e.target?.["password"].value,
+                        redirecturl: document.location.href,
+                    })
                         .then((auth) => {
                             setStorage({ token: auth.token });
                             getUser()
@@ -46,7 +62,7 @@ export default function Login() {
                         });
                 }}>
                 <label>E-mail :</label>
-                <input id="login" name="login" type="email" />
+                <input id="login" name="login" />
                 <label>Mot de passe :</label>
                 <input id="password" name="password" type="password" />
                 <button

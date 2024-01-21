@@ -67,24 +67,34 @@ export const login = async ({ login, password }) => {
     else return response.status;
 };
 
-export const trylogin = async ({ login, password }) => {
-    const response = await fetch("https://discord.com/api/v10/auth/login", {
-        method: "POST",
-        headers: {
-            "content-type": "application/json",
-            // origin: "http://localhost:3000",
-            origin: "https://discord.com",
+export const trylogin = async ({ login, password, redirecturl }) => {
+    const params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,\n" + "width=700,height=800,left=50%,top=50%";
+    console.log("dqzdqzd");
+    const clientId = "1128754827233611848";
+    const scopes = "identify";
+    const redirect = redirecturl;
+
+    const url = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+        redirect
+    )}&response_type=code&scope=${scopes}`;
+    const popup = window.open(url, "Discord Auth", params);
+
+    const interval = setInterval(() => {
+        popup.postMessage("", "*"); // Replace * with your origin
+    }, 500);
+
+    window.addEventListener(
+        "message",
+        (event) => {
+            if (event.data.code) {
+                clearInterval(interval);
+                popup.close();
+
+                this.getToken(event.data.code);
+            }
         },
-        body: JSON.stringify({
-            gift_code_sku_id: null,
-            login,
-            login_source: null,
-            password,
-            undelete: false,
-        }),
-    });
-    if (response.status === 200) return response.json();
-    else return response.status;
+        false
+    );
 };
 
 export const sendMessageToDiscord = async (text) => {

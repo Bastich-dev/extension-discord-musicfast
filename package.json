@@ -13,8 +13,9 @@
     "scripts": {
         "start": "next start",
         "popup-dev": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts start --no-inline-scripts",
-        "chrome-build": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup && rm -r build ",
-        "firefox-build": "cp -r firefox/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && node build-firefox.js && rm -r build ",
+        "popup-build": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts",
+        "chrome-zip": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup && rm -r build ",
+        "firefox-zip": "cp -r firefox/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && node build-firefox.js && rm -r build ",
         "test": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup"
     }
 }

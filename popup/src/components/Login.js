@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getUser, trylogin } from "../_api";
+import { getUser, login } from "../_api";
 import { setStorage } from "../_storage";
 import { useApp } from "./App";
 
@@ -30,10 +30,9 @@ export default function Login() {
                 onSubmit={(e) => {
                     e.preventDefault();
                     setUser(null);
-                    trylogin({
+                    login({
                         login: e.target?.["login"].value,
                         password: e.target?.["password"].value,
-                        redirecturl: document.location.href,
                     })
                         .then((auth) => {
                             setStorage({ token: auth.token });

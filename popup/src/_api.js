@@ -68,33 +68,29 @@ export const login = async ({ login, password }) => {
 };
 
 export const trylogin = async ({ login, password, redirecturl }) => {
-    const params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,\n" + "width=700,height=800,left=50%,top=50%";
-    console.log("dqzdqzd");
-    const clientId = "1128754827233611848";
-    const scopes = "identify";
-    const redirect = redirecturl;
-
-    const url = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
-        redirect
-    )}&response_type=code&scope=${scopes}`;
-    const popup = window.open(url, "Discord Auth", params);
-
-    const interval = setInterval(() => {
-        popup.postMessage("", "*"); // Replace * with your origin
-    }, 500);
-
-    window.addEventListener(
-        "message",
-        (event) => {
-            if (event.data.code) {
-                clearInterval(interval);
-                popup.close();
-
-                this.getToken(event.data.code);
-            }
-        },
-        false
-    );
+    // const params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,\n" + "width=700,height=800,left=50%,top=50%";
+    // console.log("dqzdqzd");
+    // const clientId = "1128754827233611848";
+    // const scopes = "identify";
+    // const redirect = redirecturl;
+    // const url = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+    //     redirect
+    // )}&response_type=code&scope=${scopes}`;
+    // const popup = window.open(url, "Discord Auth", params);
+    // const interval = setInterval(() => {
+    //     popup.postMessage("", "*"); // Replace * with your origin
+    // }, 500);
+    // window.addEventListener(
+    //     "message",
+    //     (event) => {
+    //         if (event.data.code) {
+    //             clearInterval(interval);
+    //             popup.close();
+    //             this.getToken(event.data.code);
+    //         }
+    //     },
+    //     false
+    // );
 };
 
 export const sendMessageToDiscord = async (text) => {

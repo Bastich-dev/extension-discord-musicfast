@@ -8,20 +8,19 @@ const popupFolder = getZippedFolderSync();
 fs.writeFileSync(fileName + ".zip", popupFolder, "binary");
 
 function getZippedFolderSync() {
-    let allPaths = getFilePathsRecursiveSync("popup/build");
+    let allPaths = getFilePathsRecursiveSync("build");
     let zip = new JSZip();
     let zipped = zip.sync(() => {
-        for (let filePath of allPaths) {
-            let addPath = path.relative(path.join("popup/build", ""), filePath);
-
-            let data = fs.readFileSync(filePath);
-            zip.file(path.join(fileName + "/", addPath), data);
-        }
-        let data = null;
-        zip.generateAsync({ type: "nodebuffer" }).then((content) => {
-            data = content;
-        });
-        return data;
+        // for (let filePath of allPaths) {
+        //     let addPath = path.relative(path.join("popup/build", ""), filePath);
+        //     let data = fs.readFileSync(filePath);
+        //     zip.file(path.join(fileName + "/", addPath), data);
+        // }
+        // let data = null;
+        // zip.generateAsync({ type: "nodebuffer" }).then((content) => {
+        //     data = content;
+        // });
+        // return data;
     });
     return zipped;
 }

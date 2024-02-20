@@ -8,14 +8,27 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-scripts": "^5.0.1",
-        "sass": "^1.62.0"
+        "sass": "^1.62.0",
+        "usehooks-ts": "^2.14.0"
     },
     "scripts": {
         "start": "next start",
-        "popup-dev": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts start --no-inline-scripts",
-        "popup-build": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts",
-        "chrome-zip": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup && rm -r build ",
-        "firefox-zip": "cp -r firefox/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && node build-firefox.js && rm -r build ",
-        "test": "cp -r chrome/public popup && cd popup && pnpm i && react-scripts build --no-inline-scripts && rm -r public && cd .. && node build-chrome.js && cd popup"
+        "dev": "react-scripts start --no-inline-scripts",
+        "build": "react-scripts build --no-inline-scripts",
+        "build-chrome": "react-scripts build --no-inline-scripts && node build-firefox.js && rm -r build",
+        "build-firefox": "react-scripts build --no-inline-scripts && node build-chrome.js && rm -r build",
+        "test": ""
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

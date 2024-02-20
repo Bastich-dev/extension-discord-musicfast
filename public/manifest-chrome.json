@@ -1,0 +1,61 @@
+{
+    "name": "Discord Music Fast",
+    "version": "2.0.0",
+    "description": "Extension de navigateur pour envoyer des liens Youtube & Youtube Music sur un channel textuel discord avec un simple clic droit.",
+    "permissions": ["activeTab", "contextMenus", "tabs", "storage"],
+    "host_permissions": ["https://discord.com/*"],
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "youtube/service_worker.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.youtube.com/*"],
+            "all_frames": false,
+            "css": ["youtube/style.css"],
+            "js": ["youtube/content_scripts.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["https://*.music.youtube.com/*"],
+            "css": ["youtube-music/style.css"],
+            "js": ["youtube-music/content_scripts.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["https://discord.com/*"],
+            "all_frames": false,
+            "js": ["discord/content_scripts.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "matches": ["https://*.discord.com/*"],
+            "resources": ["discord/web_accessible_resources.js"]
+        },
+        {
+            "matches": ["https://*.youtube.com/*"],
+            "resources": ["utils.js"]
+        },
+        {
+            "matches": ["https://*.music.youtube.com/*"],
+            "resources": ["utils.js"]
+        }
+    ],
+
+    "icons": {
+        "16": "favicon-16x16.png",
+        "48": "favicon-32x32.png",
+        "128": "favicon-96x96.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "favicon-16x16.png",
+            "48": "favicon-32x32.png",
+            "128": "favicon-96x96.png"
+        },
+        "default_popup": "index.html"
+    }
+}

@@ -9,7 +9,7 @@
 
 ### **_Google Chrome & Opera GX :_**
 
-1. **[Chrome-MusicFast.zip](https://github.com/Bastich-dev/extension-discord-musicfast/raw/master/versions/Chrome-Discord-Bacon.zip) + Dézip**
+1. **[Chrome-MusicFast.zip](https://github.com/Bastich-dev/extension-discord-musicfast/raw/master/versions/Chrome-MusicFast.zip) + Dézip**
 2. **Va à [chrome://extensions/](chrome://extensions/) et tu coches la case en haut à droite de la page "Mode développeur"**
 3. **Clique sur "Charger l'extension non empaquetée" en haut à gauche et tu choisis le dossier téléchargé**
 
@@ -17,7 +17,7 @@
 
 ### **_Firefox :_**
 
-1. **[Firefox-MusicFast.xpi](https://github.com/Bastich-dev/extension-discord-musicfast/raw/master/versions/Firefox-Discord-Bacon.xpi) + Dézip**
+1. **[Firefox-MusicFast.xpi](https://github.com/Bastich-dev/extension-discord-musicfast/raw/master/versions/Firefox-MusicFast.xpi) + Dézip**
 2. **Clique DROIT -> Ouvrir avec... -> Firefox**
 
 # Tips pour utiliser l’extension

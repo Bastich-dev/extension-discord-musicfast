@@ -5,7 +5,7 @@ export const default_prefix = "+play";
 export const storage_key = "discordMusicFast";
 
 export const getBrowser = () => {
-    return navigator.userAgent.toLowerCase().includes("firefox") ? chrome : browser;
+    return chrome?.storage ? chrome : browser;
 };
 
 export const getBrowserActions = () => {

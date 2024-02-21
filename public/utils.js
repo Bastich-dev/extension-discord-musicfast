@@ -1,7 +1,7 @@
 export const storage_key = "discordMusicFast";
 
 export const getBrowser = () => {
-    return navigator.userAgent.toLowerCase().includes("firefox") ? browser : chrome;
+    return chrome?.storage ? chrome : browser;
 };
 
 export const getBrowserActions = () => {

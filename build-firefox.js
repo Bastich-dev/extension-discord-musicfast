@@ -1,10 +1,17 @@
 const fs = require("fs");
 const path = require("path");
 const JSZip = require("jszip-sync");
+const { execSync } = require("child_process");
 
 function zipDirectory(directoryPath, zipFilePath) {
     // Créer une nouvelle instance de JSZip
     const zip = new JSZip();
+
+    try {
+        execSync("rm " + zipFilePath);
+    } catch {}
+    execSync("cp manifest-firefox.json public/manifest.json");
+    execSync("pnpm run build");
 
     // Fonction récursive pour ajouter les fichiers et dossiers au zip
     function addFilesToZip(folderPath, relativePath) {
@@ -37,5 +44,5 @@ function zipDirectory(directoryPath, zipFilePath) {
 
 // Utilisation
 const directoryPath = "build";
-const zipFilePath = "Firefox-Discord-Bacon.zip";
+const zipFilePath = "versions/Firefox-Discord-Bacon.xpi";
 zipDirectory(directoryPath, zipFilePath);

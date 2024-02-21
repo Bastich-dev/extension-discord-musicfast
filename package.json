@@ -15,9 +15,8 @@
         "start": "next start",
         "dev": "react-scripts start --no-inline-scripts",
         "build": "react-scripts build --no-inline-scripts",
-        "build-chrome": "react-scripts build --no-inline-scripts && node build-firefox.js && rm -r build",
-        "build-firefox": "react-scripts build --no-inline-scripts && node build-chrome.js && rm -r build",
-        "test": ""
+        "build-chrome": "react-scripts build --no-inline-scripts && node build-firefox.js",
+        "build-firefox": "react-scripts build --no-inline-scripts && node build-chrome.js"
     },
     "browserslist": {
         "production": [

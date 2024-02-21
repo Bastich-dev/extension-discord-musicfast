@@ -1,48 +1,47 @@
 const fs = require("fs");
 const path = require("path");
 const JSZip = require("jszip-sync");
+const { execSync } = require("child_process");
 
-const fileName = "Chrome-Discord-Bacon";
+function zipDirectory(directoryPath, zipFilePath) {
+    // Créer une nouvelle instance de JSZip
+    const zip = new JSZip();
+    try {
+        execSync("rm " + zipFilePath);
+    } catch {}
+    execSync("cp manifest-chrome.json public/manifest.json");
+    execSync("pnpm run build");
 
-const popupFolder = getZippedFolderSync();
-fs.writeFileSync(fileName + ".zip", popupFolder, "binary");
-
-function getZippedFolderSync() {
-    let allPaths = getFilePathsRecursiveSync("build");
-    let zip = new JSZip();
-    let zipped = zip.sync(() => {
-        // for (let filePath of allPaths) {
-        //     let addPath = path.relative(path.join("popup/build", ""), filePath);
-        //     let data = fs.readFileSync(filePath);
-        //     zip.file(path.join(fileName + "/", addPath), data);
-        // }
-        // let data = null;
-        // zip.generateAsync({ type: "nodebuffer" }).then((content) => {
-        //     data = content;
-        // });
-        // return data;
-    });
-    return zipped;
-}
-// returns a flat array of absolute paths of all files recursively contained in the dir
-function getFilePathsRecursiveSync(dir) {
-    var results = [];
-    list = fs.readdirSync(dir);
-    var pending = list.length;
-    list = list.filter((e) => e !== "node_modules" && e !== "build");
-    if (!pending) return results;
-
-    for (let file of list) {
-        file = path.resolve(dir, file);
-        let stat = fs.statSync(file);
-        if (stat && stat.isDirectory()) {
-            res = getFilePathsRecursiveSync(file);
-            results = results.concat(res);
-        } else {
-            results.push(file);
+    // Fonction récursive pour ajouter les fichiers et dossiers au zip
+    function addFilesToZip(folderPath, relativePath) {
+        const files = fs.readdirSync(folderPath);
+        for (const file of files) {
+            const filePath = path.join(folderPath, file);
+            const stats = fs.statSync(filePath);
+            if (stats.isFile()) {
+                const data = fs.readFileSync(filePath);
+                zip.file(path.join(relativePath, file), data);
+            } else if (stats.isDirectory()) {
+                const newFolder = zip.folder(path.join(relativePath, file));
+                addFilesToZip(filePath, path.join(relativePath, file));
+            }
         }
-        if (!--pending) return results;
     }
 
-    return results;
+    // Ajouter les fichiers et dossiers du répertoire au zip
+    addFilesToZip(directoryPath, "");
+
+    // Générer le zip asynchrone et écrire sur le disque
+    zip.generateAsync({ type: "nodebuffer" })
+        .then(function (content) {
+            fs.writeFileSync(zipFilePath, content);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
+
+// Utilisation
+const directoryPath = "build";
+const zipFilePath = "versions/Chrome-Discord-Bacon.zip";
+zipDirectory(directoryPath, zipFilePath);

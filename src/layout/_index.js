@@ -2,7 +2,7 @@ import React, { createContext, useCallback, useContext, useEffect } from "react"
 import { useLocalStorage } from "usehooks-ts";
 import { getUser } from "../api";
 import Modules from "../modules/_index";
-import { default_prefix, getBrowser, setStorage, storage_key } from "../utils";
+import { default_prefix, getBrowserActions, setStorage, storage_key } from "../utils";
 import Footer from "./Footer";
 import Header from "./Header";
 import Login from "./Login";
@@ -16,7 +16,7 @@ const defaultApp = {
     message: false,
 };
 
-const browserTarget = getBrowser();
+const browserTarget = getBrowserActions();
 
 const AppContext = createContext(undefined);
 
@@ -39,8 +39,8 @@ export default function App() {
     useEffect(() => {
         if (app?.token) {
             getUser(app.token).then((user) => {
-                browserTarget.action.setBadgeBackgroundColor({ color: "#13870b" }, () => {
-                    browserTarget.action.setBadgeText({ text: " o" }, () => {});
+                browserTarget.setBadgeBackgroundColor({ color: "#13870b" }, () => {
+                    browserTarget.setBadgeText({ text: " o" }, () => {});
                 });
                 updateApp({
                     user,
@@ -48,8 +48,8 @@ export default function App() {
                 });
             });
         } else {
-            browserTarget.action.setBadgeBackgroundColor({ color: "#cc0000" }, () => {
-                browserTarget.action.setBadgeText({ text: " x" }, () => {});
+            browserTarget.setBadgeBackgroundColor({ color: "#cc0000" }, () => {
+                browserTarget.setBadgeText({ text: " x" }, () => {});
             });
             updateApp({
                 user: false,

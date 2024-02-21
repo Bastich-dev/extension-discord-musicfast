@@ -9,7 +9,7 @@ export const getBrowser = () => {
 };
 
 export const getBrowserActions = () => {
-    return navigator.userAgent.toLowerCase().includes("firefox") ? chrome.browserAction : chrome.actions;
+    return navigator.userAgent.toLowerCase().includes("firefox") ? chrome.browserAction : chrome.action;
 };
 
 export const getStorage = async () => {
